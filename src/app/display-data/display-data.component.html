@@ -1,14 +1,16 @@
-<div *ngFor="let item of postsDataFromUrl" >
-    <p> userId: {{item.userId}}</p>
-    <p> id: {{item.id}}</p>
-    <p> title: {{item.title}}</p>
-    <p> body: {{item.body}}</p>
-</div>
-<hr>
-<div *ngFor="let item of usersDataFromUrl" >
-    <p> userId: {{item.userId}}</p>
-    <p> id: {{item.id}}</p>
-    <p> title: {{item.title}}</p>
-    <p> body: {{item.body}}</p>
-</div>
-
+<mat-list dense *ngFor="let item of postsDataFromUrl">
+    <!-- <mat-list-item> userId: {{item.userId}}</mat-list-item>
+    <mat-list-item> id: {{item.id}}</mat-list-item> -->
+    <mat-list-item class="card_margin">
+        <mat-card>
+            <mat-card-title>
+                <h3>
+                    Title:
+                </h3>
+            </mat-card-title>
+            <mat-card-content>
+                {{item.title}}
+            </mat-card-content>
+        </mat-card>
+    </mat-list-item>
+</mat-list>

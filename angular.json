@@ -104,5 +104,8 @@
       }
     }
   },
-  "defaultProject": "townSq-test"
+  "defaultProject": "townSq-test",
+  "cli": {
+    "analytics": false
+  }
 }
