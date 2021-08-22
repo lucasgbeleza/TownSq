@@ -1,15 +1,20 @@
-<mat-list dense *ngFor="let item of postsDataFromUrl">
+<mat-list dense *ngFor="let item of postsDataFromUrl" class="listMargins">
     <!-- <mat-list-item> userId: {{item.userId}}</mat-list-item>
     <mat-list-item> id: {{item.id}}</mat-list-item> -->
-    <mat-list-item class="card_margin">
+    <mat-list-item class="cardMargin">
         <mat-card>
             <mat-card-title>
-                <h3>
+                
                     Title:
-                </h3>
+                
             </mat-card-title>
             <mat-card-content>
-                {{item.title}}
+                <div class="cardContentAlign">
+                    {{item.title}}
+                    <button mat-raised-button (click)="openEditDialog(item)" class="btnAlign">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </div>
             </mat-card-content>
         </mat-card>
     </mat-list-item>

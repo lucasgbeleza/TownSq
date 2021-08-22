@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
 import { GetDataService } from 'services/get-data.service';
+import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
 
 @Component({
   selector: 'app-display-data',
@@ -8,27 +11,35 @@ import { GetDataService } from 'services/get-data.service';
 })
 export class DisplayDataComponent implements OnInit {
 
-  constructor(public dataService: GetDataService) { }
+  constructor(public dataService: GetDataService, private dialog: MatDialog, private route: ActivatedRoute) { }
 
   postsDataFromUrl: any;
   usersDataFromUrl: any;
 
+  newTitle = String(this.route.snapshot.paramMap.get('newTitle'));
+  newBody = String(this.route.snapshot.paramMap.get('newBody'));
+  confirmId = String(this.route.snapshot.paramMap.get('id'));
+
   ngOnInit(): void {
     this.showPostsData();
-    this.showUsersData();
+    
+  }
+
+  openEditDialog(itemData: any){
+    this.dialog.open(EditDialogComponent, {data: {userId: itemData.userId, id: itemData.id, title: itemData.title, body: itemData.body}});
+    
   }
 
   showPostsData(){
     this.dataService.getPostsData().subscribe(postsData => {
-      console.log(postsData)
       this.postsDataFromUrl = postsData;
+      this.postsDataFromUrl.forEach((post: any, index: any) => {
+        if(this.confirmId == post.id){
+          post.title = this.newTitle;
+          post.body = this.newBody;
+        }
+      });
     });
-  }
-  showUsersData(){
-    this.dataService.getPostsData().subscribe(usersData => {
-      console.log(usersData)
-      this.usersDataFromUrl = usersData;
-    });
-  }
+    }
 
 }

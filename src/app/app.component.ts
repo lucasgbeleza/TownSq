@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'townSq-test';
+  
+  openSideMenu(menu:any){
+    menu.toggle();
+  }
 }
+
