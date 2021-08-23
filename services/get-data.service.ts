@@ -1,25 +1,24 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class GetDataService {
 
+  // Service used to get data from given URL
   constructor(private httpClient: HttpClient) { }
 
   jsonDataUrl = 'http://jsonplaceholder.typicode.com';
   postsUrl = '/posts';
-  usersUrl = '/users';
+  // usersUrl = '/users';
   
 
   getPostsData() {
    return this.httpClient.get(this.jsonDataUrl+this.postsUrl);
   }
 
-  getUsersData(){
-    return this.httpClient.get(this.jsonDataUrl+this.usersUrl);
-  }
+  // getUsersData(){
+  //   return this.httpClient.get(this.jsonDataUrl+this.usersUrl);
+  // }
 }

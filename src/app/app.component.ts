@@ -8,7 +8,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'townSq-test';
   
-  openSideMenu(menu:any){
+  // Method to open / close side menu
+  sideMenuToggle(menu:any){
     menu.toggle();
   }
 }

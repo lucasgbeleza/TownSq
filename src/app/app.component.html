@@ -1,5 +1,5 @@
 <mat-toolbar class="toolbarTownSq whiteText">
-    <button mat-icon-button (click)="openSideMenu(sideMenu)">
+    <button mat-icon-button (click)="sideMenuToggle(sideMenu)">
         <mat-icon>menu</mat-icon>
     </button>
     <span>
@@ -10,9 +10,9 @@
 <mat-drawer-container>
     <mat-drawer opened="false" mode="over" #sideMenu class="sideMenu">
         <mat-list>
-            <mat-list-item class="whiteText" [routerLink]="['/welcome-page']" routerLinkActive="active" (click)="sideMenu.toggle()" >Welcome page</mat-list-item>
-            <mat-list-item class="whiteText" [routerLink]="['/display-data']" routerLinkActive="active" (click)="sideMenu.toggle()">Posts page</mat-list-item>
-            <mat-list-item class="whiteText" [routerLink]="['/thanks-page']" routerLinkActive="active" (click)="sideMenu.toggle()">Thanks page</mat-list-item>
+            <mat-list-item class="whiteText" [routerLink]="['/welcome-page']" routerLinkActive="active" (click)="sideMenuToggle(sideMenu)" >Welcome page</mat-list-item>
+            <mat-list-item class="whiteText" [routerLink]="['/display-data']" routerLinkActive="active" (click)="sideMenuToggle(sideMenu)">Posts page</mat-list-item>
+            <mat-list-item class="whiteText" [routerLink]="['/thanks-page']" routerLinkActive="active" (click)="sideMenuToggle(sideMenu)">Thanks page</mat-list-item>
         </mat-list>
     </mat-drawer>
     <mat-drawer-content>
